@@ -5,7 +5,7 @@ function CreateTask(props) {
     return (
         <div>
             <h1>CreateTask</h1>
-            <CreateTaskForm />
+            <CreateTaskForm {...props} />
         </div>
     )
 }
