@@ -4,7 +4,6 @@ import CreateTaskForm from '../CreateTaskForm/CreateTaskForm';
 function CreateTask(props) {
     return (
         <div>
-            <h1>CreateTask</h1>
             <CreateTaskForm {...props} />
         </div>
     )

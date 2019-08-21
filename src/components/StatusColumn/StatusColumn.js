@@ -19,7 +19,7 @@ function StatusColumn(props) {
     return (
         <div>
           {filterAndSortTasks(props.tasks, props.status).map((task, index) =>
-            <TaskCard key={index} {...props} task={task} />
+            <TaskCard key={index} {...props} task={task} index={index} />
           )}
         </div>
       );

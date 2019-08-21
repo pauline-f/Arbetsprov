@@ -1,5 +1,7 @@
 import React from 'react';
 import './TaskCard.css';
+import { Link } from 'react-router-dom';
+
 
 function TaskCard(props) {
 
@@ -19,42 +21,45 @@ function TaskCard(props) {
 
     return (
         <div className='taskCard'>
-            <h3>{props.task.task}</h3>
-            <p>Story points: {props.task.sp}</p>
-            {developer ? <p>Assigned developer: {developer}</p> : <></>}
-            {props.task.status === 'created'
-                ? <button onClick={changeStatusToDeleted}>Deleted</button>
-                : <></>
-            }
+            <Link to={`/task/update/${props.index}`}>
+            
+                <h3>{props.task.task}</h3>
+                <p>Story points: {props.task.sp}</p>
+                {developer ? <p>Assigned developer: {developer}</p> : <></>}
+                {props.task.status === 'created'
+                    ? <button onClick={changeStatusToDeleted}>Deleted</button>
+                    : <></>
+                }
 
-            {props.task.status === 'onhold'
-                ?
-                <div>
-                    <button onClick={changeStatusToActive}>Active</button>
-                    <button onClick={changeStatusToDeleted}>Deleted</button>
-                </div>
-                : <></>
-            }
+                {props.task.status === 'onhold'
+                    ?
+                    <div>
+                        <button onClick={changeStatusToActive}>Active</button>
+                        <button onClick={changeStatusToDeleted}>Deleted</button>
+                    </div>
+                    : <></>
+                }
 
-            {props.task.status === 'active'
-                ?
-                <div>
-                    <button onClick={changeStatusToCompleted}>Completed</button>
-                    <button onClick={changeStatusToOnhold}>Onhold</button>
-                    <button onClick={changeStatusToDeleted}>Deleted</button>
-                </div>
-                : <></>
-            }
+                {props.task.status === 'active'
+                    ?
+                    <div>
+                        <button onClick={changeStatusToCompleted}>Completed</button>
+                        <button onClick={changeStatusToOnhold}>Onhold</button>
+                        <button onClick={changeStatusToDeleted}>Deleted</button>
+                    </div>
+                    : <></>
+                }
 
-            {props.task.status === 'completed'
-                ?
-                <div>
-                    <button onClick={changeStatusToOnhold}>Active</button>
-                    <button onClick={changeStatusToOnhold}>Onhold</button>
-                    <button onClick={changeStatusToDeleted}>Deleted</button>
-                </div>
-                : <></>
-            }
+                {props.task.status === 'completed'
+                    ?
+                    <div>
+                        <button onClick={changeStatusToOnhold}>Active</button>
+                        <button onClick={changeStatusToOnhold}>Onhold</button>
+                        <button onClick={changeStatusToDeleted}>Deleted</button>
+                    </div>
+                    : <></>
+                }
+            </Link>
         </div>
     )
 }

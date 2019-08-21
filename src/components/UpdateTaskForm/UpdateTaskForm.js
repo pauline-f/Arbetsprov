@@ -1,35 +1,33 @@
 import React from 'react';
 
-function CreateTaskForm(props) {
+function UpdateTaskForm(props) {
 
-    let tasks = props.tasks;
+    const task = props.tasks[props.match.params.id];
 
-    const saveTask = (e) => {
+    const updateTask = (e) => {
         e.preventDefault();
-        const task = document.getElementById('task').value;
-        const sp = document.getElementById('sp').value;
-        const dev = document.getElementById('dev').value;
-        const status = (dev === '') ? 'created' : 'active';
-        tasks.push({ task: task, sp: sp, dev: dev, status: status });
-        props.setTasks(tasks);
-        console.log(props.tasks);
-        document.getElementById('task').value = '';
-        document.getElementById('sp').value = '';
-        document.getElementById('dev').value = '';
+        task.task = document.getElementById('task').value;
+        task.sp = document.getElementById('sp').value;
+        task.dev = document.getElementById('dev').value;
+        task.status = (task.dev === '') ? 'created' : 'active';
+
+        let allTasks = [...props.tasks];
+        allTasks.splice(allTasks.indexOf(props.match.params.id), 1, task);
+        props.setTasks(allTasks);
     };
 
     return (
         <div>
-            <h1>Create Task</h1>
-            <form autoComplete='off' onSubmit={saveTask}>
+            <h1>Update Task</h1>
+            <form autoComplete='off' onSubmit={updateTask}>
                 <div>
                     <label htmlFor='task'>Task:</label>
-                    <input type='text' id='task' />
+                    <input type='text' id='task' defaultValue={task.task} />
                 </div>
 
                 <div>
                     <label htmlFor='sp'>Story points:</label>
-                    <select id='sp'>
+                    <select id='sp' defaultValue={task.sp}>
                         {props.storyPoints.map((point, index) => {
                             return <option key={index} value={point}>{point}</option>
                         })}
@@ -38,7 +36,7 @@ function CreateTaskForm(props) {
 
                 <div>
                     <label htmlFor='dev'>Assigned developer:</label>
-                    <select id='dev'>
+                    <select id='dev' defaultValue={task.dev}>
                         <option value=""></option>
                         {props.developers.map((developer, index) => {
                             return <option key={index} value={developer.id}>{developer.name}</option>
@@ -47,11 +45,11 @@ function CreateTaskForm(props) {
                 </div>
 
                 <div>
-                    <input type='submit' value='Save' />
+                    <input type='submit' value='Update' />
                 </div>
             </form>
         </div>
     )
 }
 
-export default CreateTaskForm;
+export default UpdateTaskForm;
