@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskCard from '../TaskCard/TaskCard';
 
 function filterAndSortTasks(tasks, status) {
     return tasks
@@ -16,11 +17,11 @@ function filterAndSortTasks(tasks, status) {
 
 function StatusColumn(props) {
     return (
-        <ul>
+        <div>
           {filterAndSortTasks(props.tasks, props.status).map((task, index) =>
-            <li key={index}>{task.task} - {task.sp}</li>
+            <TaskCard key={index} {...props} task={task} />
           )}
-        </ul>
+        </div>
       );
 }
 
