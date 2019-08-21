@@ -5,9 +5,9 @@ function filterAndSortTasks(tasks, status) {
     return tasks
       .filter(task => task.status === status)
       .sort((a, b) => {
-        if(a.sp < b.sp) {
+        if(a.sp > b.sp) {
           return -1;
-        } else if(a.sp > b.sp) {
+        } else if(a.sp < b.sp) {
           return 1;
         } else {
           return 0;

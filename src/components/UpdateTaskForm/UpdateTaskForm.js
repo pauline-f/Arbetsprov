@@ -6,7 +6,9 @@ function UpdateTaskForm(props) {
     
     const updateTask = (e) => {
         e.preventDefault();
-        task.task = document.getElementById('task').value;
+        const taskName = document.getElementById('task').value;
+        if (!taskName) return;
+        task.task = taskName;
         task.sp = document.getElementById('sp').value;
         task.dev = document.getElementById('dev').value;
         const status = task.status;
@@ -19,6 +21,7 @@ function UpdateTaskForm(props) {
         const taskToUpdate = allTasks.filter(task => task.id === parseInt(props.match.params.id))[0];
         allTasks.splice(allTasks.indexOf(taskToUpdate), 1, task);
         props.setTasks(allTasks);
+        props.history.push('/board')
     };
 
     return (

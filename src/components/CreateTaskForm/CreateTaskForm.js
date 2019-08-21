@@ -8,6 +8,7 @@ function CreateTaskForm(props) {
     const saveTask = (e) => {
         e.preventDefault();
         const task = document.getElementById('task').value;
+        if (!task) return;
         const sp = document.getElementById('sp').value;
         const dev = document.getElementById('dev').value;
         const status = (dev === '') ? 'created' : 'active';
@@ -18,6 +19,7 @@ function CreateTaskForm(props) {
         document.getElementById('task').value = '';
         document.getElementById('sp').value = '';
         document.getElementById('dev').value = '';
+        props.history.push('/board')
     };
 
     return (
