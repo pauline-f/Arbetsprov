@@ -10,7 +10,8 @@ function CreateTaskForm(props) {
         const sp = document.getElementById('sp').value;
         const dev = document.getElementById('dev').value;
         const status = (dev === '') ? 'created' : 'active';
-        tasks.push({ task: task, sp: sp, dev: dev, status: status });
+        const id = tasks.length + 1;
+        tasks.push({ id: id, task: task, sp: sp, dev: dev, status: status });
         props.setTasks(tasks);
         console.log(props.tasks);
         document.getElementById('task').value = '';

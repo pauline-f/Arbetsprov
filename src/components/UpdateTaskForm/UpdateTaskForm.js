@@ -2,17 +2,22 @@ import React from 'react';
 
 function UpdateTaskForm(props) {
 
-    const task = props.tasks[props.match.params.id];
-
+    const task = props.tasks.filter(task => task.id === parseInt(props.match.params.id))[0];    
+    
     const updateTask = (e) => {
         e.preventDefault();
         task.task = document.getElementById('task').value;
         task.sp = document.getElementById('sp').value;
         task.dev = document.getElementById('dev').value;
-        task.status = (task.dev === '') ? 'created' : 'active';
+        const status = task.status;
+        task.status = (task.dev === '') ? 'created' : status;
+
+        if (task.status === 'created' && task.dev !== '') task.status = 'active';
+
 
         let allTasks = [...props.tasks];
-        allTasks.splice(allTasks.indexOf(props.match.params.id), 1, task);
+        const taskToUpdate = allTasks.filter(task => task.id === parseInt(props.match.params.id))[0];
+        allTasks.splice(allTasks.indexOf(taskToUpdate), 1, task);
         props.setTasks(allTasks);
     };
 

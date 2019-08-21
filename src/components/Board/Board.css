@@ -2,3 +2,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.StatusColumn {
+    background-color: aqua;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.status {
+    width: 100%;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+}

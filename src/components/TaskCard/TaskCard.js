@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 function TaskCard(props) {
-
+    
     const developer = (props.task.dev) ? props.developers.filter(dev => dev.id === props.task.dev)[0].name : '';
 
     const changeStatusToActive = () => changeStatus('active');
@@ -21,45 +21,45 @@ function TaskCard(props) {
 
     return (
         <div className='taskCard'>
-            <Link to={`/task/update/${props.index}`}>
-            
+            <Link to={`/task/update/${props.task.id}`}>
                 <h3>{props.task.task}</h3>
-                <p>Story points: {props.task.sp}</p>
-                {developer ? <p>Assigned developer: {developer}</p> : <></>}
-                {props.task.status === 'created'
-                    ? <button onClick={changeStatusToDeleted}>Deleted</button>
-                    : <></>
-                }
-
-                {props.task.status === 'onhold'
-                    ?
-                    <div>
-                        <button onClick={changeStatusToActive}>Active</button>
-                        <button onClick={changeStatusToDeleted}>Deleted</button>
-                    </div>
-                    : <></>
-                }
-
-                {props.task.status === 'active'
-                    ?
-                    <div>
-                        <button onClick={changeStatusToCompleted}>Completed</button>
-                        <button onClick={changeStatusToOnhold}>Onhold</button>
-                        <button onClick={changeStatusToDeleted}>Deleted</button>
-                    </div>
-                    : <></>
-                }
-
-                {props.task.status === 'completed'
-                    ?
-                    <div>
-                        <button onClick={changeStatusToOnhold}>Active</button>
-                        <button onClick={changeStatusToOnhold}>Onhold</button>
-                        <button onClick={changeStatusToDeleted}>Deleted</button>
-                    </div>
-                    : <></>
-                }
+                {props.task.id}
             </Link>
+            <p>Story points: {props.task.sp}</p>
+            {developer ? <p>Assigned developer: {developer}</p> : <></>}
+            {props.task.status === 'created'
+                ? <button onClick={changeStatusToDeleted}>Deleted</button>
+                : <></>
+            }
+
+            {props.task.status === 'onhold'
+                ?
+                <div>
+                    <button onClick={changeStatusToActive}>Active</button>
+                    <button onClick={changeStatusToDeleted}>Deleted</button>
+                </div>
+                : <></>
+            }
+
+            {props.task.status === 'active'
+                ?
+                <div>
+                    <button onClick={changeStatusToCompleted}>Completed</button>
+                    <button onClick={changeStatusToOnhold}>Onhold</button>
+                    <button onClick={changeStatusToDeleted}>Deleted</button>
+                </div>
+                : <></>
+            }
+
+            {props.task.status === 'completed'
+                ?
+                <div>
+                    <button onClick={changeStatusToActive}>Active</button>
+                    <button onClick={changeStatusToOnhold}>Onhold</button>
+                    <button onClick={changeStatusToDeleted}>Deleted</button>
+                </div>
+                : <></>
+            }
         </div>
     )
 }
