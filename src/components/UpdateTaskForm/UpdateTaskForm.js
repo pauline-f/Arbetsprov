@@ -25,12 +25,12 @@ function UpdateTaskForm(props) {
         <div>
             <h1>Update Task</h1>
             <form autoComplete='off' onSubmit={updateTask}>
-                <div>
+                <div className='element'>
                     <label htmlFor='task'>Task:</label>
                     <input type='text' id='task' defaultValue={task.task} />
                 </div>
 
-                <div>
+                <div className='element'>
                     <label htmlFor='sp'>Story points:</label>
                     <select id='sp' defaultValue={task.sp}>
                         {props.storyPoints.map((point, index) => {
@@ -39,7 +39,7 @@ function UpdateTaskForm(props) {
                     </select>
                 </div>
 
-                <div>
+                <div className='element'>
                     <label htmlFor='dev'>Assigned developer:</label>
                     <select id='dev' defaultValue={task.dev}>
                         <option value=""></option>
@@ -49,8 +49,8 @@ function UpdateTaskForm(props) {
                     </select>
                 </div>
 
-                <div>
-                    <input type='submit' value='Update' />
+                <div className='element'>
+                    <input type='submit' value='Update'  className='button'/>
                 </div>
             </form>
         </div>

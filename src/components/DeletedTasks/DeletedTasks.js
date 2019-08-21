@@ -1,9 +1,14 @@
 import React from 'react';
+import './DeletedTasks.css';
+import StatusColumn from '../StatusColumn/StatusColumn';
 
-function DeletedTasks() {
+function DeletedTasks(props) {
     return (
         <div>
-            <h1>DeletedTasks</h1>
+            <h1>Deleted Tasks</h1>
+            <div>
+                <StatusColumn {...props} status={'deleted'} />
+            </div>
         </div>
     )
 }

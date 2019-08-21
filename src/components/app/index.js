@@ -22,7 +22,7 @@ function App() {
             <Route path='/board' render={(props) => <Board {...props} tasks={tasks} setTasks={setTasks} developers={developers} component={Board} />} />
             <Route path='/task/create' render={(props) => <CreateTask {...props} tasks={tasks} setTasks={setTasks} developers={developers} storyPoints={storyPoints} component={CreateTask} />} />
             <Route path='/task/update/:id' render={(props) => <UpdateTaskForm {...props} tasks={tasks} setTasks={setTasks} developers={developers} storyPoints={storyPoints} component={UpdateTaskForm} />} />
-            <Route path='/deleted-tasks' render={(props) => <DeletedTasks {...props} tasks={tasks} component={DeletedTasks} />} />
+            <Route path='/deleted-tasks' render={(props) => <DeletedTasks {...props} tasks={tasks} developers={developers} component={DeletedTasks} />} />
         </BrowserRouter>
     )
 }
