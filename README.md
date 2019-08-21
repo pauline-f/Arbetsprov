@@ -1,12 +1,12 @@
 # Task tracking application 
 
-This application allows to create, display, complete, update, assign and delete tasks.
-For each task you can add a story points from 0 to 10.
-A task can be assigned to a developer.
-It can have different states : created, active, completed, onhold and deleted.
-The tasks are displayed in a board. The deleted tasks are displayed in another view.
-Tasks can be modified.
-On the board, tasks are sorted by story points.
+This application allows to create, display, complete, update, assign and delete tasks.  
+For each task you can add a story points from 0 to 10.  
+A task can be assigned to a developer.  
+It can have different states : created, active, completed, onhold and deleted.  
+The tasks are displayed in a board. The deleted tasks are displayed in another view.  
+Tasks can be modified.  
+On the board, tasks are sorted by story points.  
 
 ### Notes
 - I used React with State Hooks
