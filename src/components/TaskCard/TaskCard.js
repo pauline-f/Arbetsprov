@@ -22,10 +22,39 @@ function TaskCard(props) {
             <h3>{props.task.task}</h3>
             <p>Story points: {props.task.sp}</p>
             {developer ? <p>Assigned developer: {developer}</p> : <></>}
-            <button onClick={changeStatusToActive}>Active</button>
-            <button onClick={changeStatusToCompleted}>Completed</button>
-            <button onClick={changeStatusToOnhold}>Onhold</button>
-            <button onClick={changeStatusToDeleted}>Deleted</button>
+            {props.task.status === 'created'
+                ? <button onClick={changeStatusToDeleted}>Deleted</button>
+                : <></>
+            }
+
+            {props.task.status === 'onhold'
+                ?
+                <div>
+                    <button onClick={changeStatusToActive}>Active</button>
+                    <button onClick={changeStatusToDeleted}>Deleted</button>
+                </div>
+                : <></>
+            }
+
+            {props.task.status === 'active'
+                ?
+                <div>
+                    <button onClick={changeStatusToCompleted}>Completed</button>
+                    <button onClick={changeStatusToOnhold}>Onhold</button>
+                    <button onClick={changeStatusToDeleted}>Deleted</button>
+                </div>
+                : <></>
+            }
+
+            {props.task.status === 'completed'
+                ?
+                <div>
+                    <button onClick={changeStatusToOnhold}>Active</button>
+                    <button onClick={changeStatusToOnhold}>Onhold</button>
+                    <button onClick={changeStatusToDeleted}>Deleted</button>
+                </div>
+                : <></>
+            }
         </div>
     )
 }
