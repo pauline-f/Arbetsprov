@@ -18,7 +18,7 @@ function App() {
     return (
         <BrowserRouter>
             <NavBar />
-            <Route path='/board' render={(props) => <Board {...props} tasks={tasks} developers={developers} component={Board} />} />
+            <Route path='/board' render={(props) => <Board {...props} tasks={tasks} setTasks={setTasks} developers={developers} component={Board} />} />
             <Route path='/task/create' render={(props) => <CreateTask {...props} tasks={tasks} setTasks={setTasks} developers={developers} storyPoints={storyPoints} component={CreateTask} />} />
             <Route path='/deleted-tasks' render={(props) => <DeletedTasks {...props} tasks={tasks} component={DeletedTasks} />} />
         </BrowserRouter>
