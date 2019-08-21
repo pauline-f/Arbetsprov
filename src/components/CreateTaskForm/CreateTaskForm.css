@@ -1,0 +1,28 @@
+form {
+    margin: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.element {
+    margin: 10px;
+}
+
+.button {
+    background-color: #4fc3f7;
+    color: black;
+    border: 1px solid #0093c4;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .button:hover {
+    background-color: #0093c4;
+    color: black;
+    border: 1px solid #0093c4;
+    padding: 10px;
+    border-radius: 5px;
+  }

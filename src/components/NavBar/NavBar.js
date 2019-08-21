@@ -9,10 +9,10 @@ function NavBar() {
                 <Link to='/board'>Board</Link>
             </div>
             <div>
-                <Link to='/task/create'>CreateTask</Link>
+                <Link to='/task/create'>Create Task</Link>
             </div>
             <div>
-                <Link to='/deleted-tasks'>DeletedTasks</Link>
+                <Link to='/deleted-tasks'>Deleted Tasks</Link>
             </div>
         </div>
     )

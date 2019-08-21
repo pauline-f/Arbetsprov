@@ -1,4 +1,5 @@
 import React from 'react';
+import './CreateTaskForm.css'
 
 function CreateTaskForm(props) {
 
@@ -23,12 +24,12 @@ function CreateTaskForm(props) {
         <div>
             <h1>Create Task</h1>
             <form autoComplete='off' onSubmit={saveTask}>
-                <div>
+                <div className='element'>
                     <label htmlFor='task'>Task:</label>
                     <input type='text' id='task' />
                 </div>
 
-                <div>
+                <div className='element'>
                     <label htmlFor='sp'>Story points:</label>
                     <select id='sp'>
                         {props.storyPoints.map((point, index) => {
@@ -37,7 +38,7 @@ function CreateTaskForm(props) {
                     </select>
                 </div>
 
-                <div>
+                <div className='element'>
                     <label htmlFor='dev'>Assigned developer:</label>
                     <select id='dev'>
                         <option value=""></option>
@@ -47,8 +48,8 @@ function CreateTaskForm(props) {
                     </select>
                 </div>
 
-                <div>
-                    <input type='submit' value='Save' />
+                <div className='element'>
+                    <input type='submit' value='Save' className='button'/>
                 </div>
             </form>
         </div>

@@ -23,7 +23,6 @@ function TaskCard(props) {
         <div className='taskCard'>
             <Link to={`/task/update/${props.task.id}`}>
                 <h3>{props.task.task}</h3>
-                {props.task.id}
             </Link>
             <p>Story points: {props.task.sp}</p>
             {developer ? <p>Assigned developer: {developer}</p> : <></>}
